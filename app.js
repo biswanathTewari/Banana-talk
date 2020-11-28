@@ -21,8 +21,12 @@ var clickHandler = function () {
       .then((Response) => Response.json())
       .then((json) => {
          output.innerText = json.contents.translated;
+         speechSynthesis.speak(
+            new SpeechSynthesisUtterance(json.contents.translated)
+         );
       })
       .catch(errorHandler);
+   //console.log(output.innerText);
 };
 
 /*---------------------------------------------------------------------------------------*/
